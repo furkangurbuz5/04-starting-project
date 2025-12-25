@@ -1,10 +1,9 @@
 import {Component, Input} from '@angular/core';
-import {CurrencyPipe} from "@angular/common";
 
 @Component({
   selector: 'app-investment-result',
   standalone: true,
-  imports: [CurrencyPipe],
+  imports: [],
   templateUrl: './investment-result.component.html',
   styleUrl: './investment-result.component.css'
 })
@@ -16,12 +15,10 @@ export class InvestmentResultComponent {
   @Input() duration!: number;
 
 
-
+  // TODO move to service
   calculateInvestmentResults() {
     const annualData = [];
     let investmentValue = this.investment;
-
-
 
     for (let i = 0; i < this.duration; i++) {
       const year = i + 1;
