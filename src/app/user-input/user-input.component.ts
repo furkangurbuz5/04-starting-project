@@ -19,7 +19,7 @@ export class UserInputComponent {
   enteredExpectedReturn: string = '5';
   enteredDuration: string = '10';
 
-  onSubmit(){
+  onSubmit() {
     this.calculate.emit({
       initialInvestment: parseInt(this.enteredInvestment),
       duration: parseInt(this.enteredDuration),
