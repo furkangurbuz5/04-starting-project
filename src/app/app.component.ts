@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, signal} from '@angular/core';
 import {HeaderComponent} from "./header/header.component";
 import {InvestmentResultComponent} from "./investment-result/investment-result.component";
 import {UserInputComponent} from "./user-input/user-input.component";
@@ -15,14 +15,14 @@ import type {InvestmentInputModel} from "./investment-input.model";
   ]
 })
 export class AppComponent {
-  resultsData?: {
+  resultsData = signal<{
     year: number,
     interest: number,
     valueEndOfYear: number,
     annualInvestment: number,
     totalInterest: number,
     totalAmountInvested: number,
-  }[];
+  }[] | undefined>(undefined);
 
   // TODO move to service
   onCalculateInvestmentResults(data: InvestmentInputModel) {
@@ -51,7 +51,7 @@ export class AppComponent {
       });
     }
 
-    this.resultsData = annualData;
+    this.resultsData.set(annualData);
   }
 
 }
