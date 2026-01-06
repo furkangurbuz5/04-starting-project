@@ -14,7 +14,6 @@ export class InvestmentService {
       totalAmountInvested: number,
     }[] | undefined>(undefined);
   
-    // TODO move to service
     calculateInvestmentResults(data: InvestmentInputModel) {
       const {
         initialInvestment,
@@ -43,7 +42,4 @@ export class InvestmentService {
   
       this.resultsData.set(annualData);
     }
-
-
-
 }
